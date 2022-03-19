@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <ul>
+      <% users.forEach(function(user){ %>
+        <p><%= user %></p>
+      <% }); %>
+    </ul>
+    <h4>Danh sach san pham cua cua hang chung toi</h4>
+    <ul>
+      <% newProducts.forEach(function(product){ %>
+        <p>Ten san pham: <%= product.name %></p>
+        <p>Gia san pham: <%= product.price %></p>
+      <% }); %>
+    </ul>
+  </body>
+</html>
