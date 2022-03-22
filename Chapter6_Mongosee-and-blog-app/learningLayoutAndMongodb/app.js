@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const fileUpload = require('express-fileupload');
 const mongoose = require('mongoose');
 
 // connect database
@@ -11,8 +12,8 @@ mongoose.connect(db);
 
 var indexRouter = require('./routes/index');
 var postsRouter = require('./routes/posts');
-// var usersRouter = require('./routes/users');
-// var authRouter = require('./routes/auth');
+var usersRouter = require('./routes/users');
+var authRouter = require('./routes/auth');
 
 var app = express();
 
@@ -25,6 +26,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(fileUpload());
 
 // trang home
 // Get thong tin cac bai post
@@ -36,10 +38,10 @@ app.use('/posts', postsRouter);
 
 // trang user
 // Dang ky moi 1 user
-// app.use('/users', usersRouter);
+app.use('/users', usersRouter);
 
 // trang login
-// app.use('/auth', authRouter);
+app.use('/auth', authRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
