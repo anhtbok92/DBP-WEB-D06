@@ -1,0 +1,4 @@
+- Hiển thị danh sách các user github flowing
+  - Sử dụng API của github
+  - Sử dụng antd design
+  - Sử dụng class Component (sử dụng các hàm life-cycle)
