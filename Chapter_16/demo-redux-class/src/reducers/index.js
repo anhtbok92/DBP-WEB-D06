@@ -3,5 +3,5 @@ import posts from './post';
 
 export default combineReducers({
     posts: posts,
-    users: users,
+    // users: users,
 });
